@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<title>easyShop | Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- header start   -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+}
+
+.carousel-inner img {
+	width: 100%; /* Set width to 100% */
+	margin: auto;
+	min-height: 200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media ( max-width : 600px) {
+	.carousel-caption {
+		display: none;
+	}
+}
+</style>
+<!--/header  -->
+<!-- Add icon library -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.input-container {
+	display: -ms-flexbox; /* IE10 */
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.icon {
+	padding: 10px;
+	background: dodgerblue;
+	color: white;
+	min-width: 50px;
+	text-align: center;
+}
+
+.input-field {
+	width: 100%;
+	padding: 10px;
+	outline: none;
+}
+
+.input-field:focus {
+	border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+	background-color: dodgerblue;
+	color: white;
+	padding: 15px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
+}
+
+.btn:hover {
+	opacity: 1;
+}
+</style>
+
+<!-- login page  -->
+<!-- avatar Image -->
+
+<style>
+.avatar {
+	vertical-align: middle;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+</style>
+
+<!--/ avatar Image -->
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+	border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+.cancelbtn {
+	width: auto;
+	padding: 10px 18px;
+	background-color: #f44336;
+}
+
+.imgcontainer {
+	text-align: center;
+	margin: 24px 0 12px 0;
+}
+
+img.avatar {
+	width: 40%;
+	border-radius: 50%;
+}
+
+.container {
+	padding: 16px;
+}
+
+span.psw {
+	float: right;
+	padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+	span.psw {
+		display: block;
+		float: none;
+	}
+	.cancelbtn {
+		width: 100%;
+	}
+}
+</style>
+<!-- login page  -->
+</head>
+<body>
+
+	<div th:insert="fragments/commonui :: usermenu"></div>
+	<script type="text/javascript" th:src="@{/js/loginValidation.js}"></script>
+
+	<br>
+	<br>
+	<br>
+	<div class="comtainer">
+		<div class="card">
+			<div class="card-header">
+				<h2 style="color: blue; text-align: center">User Login</h2>
+				<br>
+			</div>
+
+			<div class="card-body">
+				<form action="#" style="max-width: 350px; margin: auto" id="loginForm">
+					<center>
+						<img th:src="@{/img/login.png}" height="100px" width="100px" />
+					</center>
+					<!-- #Row=1 -->
+					<div class="col-3">
+						<label for="username">Username </b></label>
+					</div>
+
+					<div class="col-3 text-white">
+						<input type="text" class="form-control"
+							placeholder="enter username" id="username" />
+					</div>
+					<div class="col-6">
+						<span id="usernameError"></span>
+
+					</div>
+					<br>
+
+					<!-- #Row=2-->
+					<div class="col-3">
+						<label for="password"><b>Password </b></label>
+					</div>
+
+					<div class="col-3 text-white">
+						<input type="password" class="form-control"
+							placeholder="enter password" id="password" />
+					</div>
+					<div class="col-6">
+						<span id="passwordError"></span>
+
+					</div>
+					<br>
+
+
+					<button type="submit" class="btn btn-success">
+						<b>Login</b>
+					</button>
+					<a href="#">Forget password</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{/ds/register}" style="text-align: right;">Create New Account</a>
+					<h3 style="text-align: center">OR</h3>
+
+					<button type="submit" class="btn btn-danger">
+						<b> Continue with Google</b>
+					</button>
+					<button type="submit" class="btn btn-primary">
+						<b>Continue with Facebook</b>
+					</button>
+					<br>
+				</form>
+				<br> <br> <br> <br> <br> <br>
+			</div>
+			<!--Card body  -->
+		</div>
+		<!-- card -->
+	</div>
+	<!-- container -->
+	<div th:insert="fragments/commonui :: footer"></div>
+	<br>
+	<br>
+
+
+
+</body>
+
+</html>

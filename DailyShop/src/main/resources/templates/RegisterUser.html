@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>easy Shop | User Registration</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	<div th:insert="fragments/commonui :: usermenu"></div>
+	<script type="text/javascript" th:src="@{/js/userValidation.js}"></script>
+	<br>
+	<br>
+	<br>
+	
+	<div class="card">
+		<div class="card-header">
+			<h2 style="color:blue;text-align:center">User Registration</h2>
+		</div>
+			
+		<br>
+			
+		<!-- Error result msg -->
+		<h5 style="color: green; text-align: center">
+			<span th:text="${errorMsg}"></span>
+		</h5>
+		
+		<!-- Card body -->
+		<div class="card-body">
+		
+			<form th:action="@{/user/processRegistration}" method="post" id="userRegstrationForm"
+					th:object="${registerUser}" style="max-width: 350px; margin: auto">
+				<b>All feilds are mandetory to fill.</b><br><br>
+							
+				 <!-- #Row=1 -->
+						<div class="row">
+							<div class="col-3 text-white">
+								<label for="firstName"><b>First Name * </b></label>
+							</div>
+
+							<div class="col-3 text-white">
+								<input th:field="*{firstName}" class="form-control" placeholder="enter first name" id="firstName"/>
+								<p class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
+							</div>
+							
+							<div class="col-6">
+								<span id="firstNameError"></span>	
+							</div>
+						</div>
+						<br>
+
+						<!-- #Row=2 -->
+						<div class="row">
+							<div class="col-3 text-white">
+								<label for="lastName"><b>Last Name * </b></label>
+							</div>
+							<div class="col-3">
+								<input th:field="*{lastName}" class="form-control" placeholder="enter last name" id="lastName" />
+								<p class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
+							</div>
+							<div class="col-6">
+								<span id="lastNameError"></span>
+							</div>
+						</div>
+						<br>
+
+						<!-- #Row=3 -->
+						<div class="row">
+							<div class="col-3 text-white">
+								<label for="email"><b>E-mail * </b></label>
+							</div>
+							
+							<div class="col-3">
+								<input th:field="*{email}" class="form-control" placeholder="enter e-mail address" id="email"/>
+								<p class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+							</div>
+							
+							<div class="col-6">
+								<span id="emailError"></span>
+							</div>
+						</div>
+						<br>
+
+						<!-- #Row=4 -->
+						<div class="row">
+							<div class="col-3 text-white">
+								<label for="phoneNo"><b>Mobile No.* </b></label>
+							</div>
+							
+							<div class="col-3">
+								<input th:field="*{phoneNo}" class="form-control" placeholder="enter mobile no." id="phoneNo"/>
+								<p class="alert alert-danger" th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}"/>
+							</div>
+							
+							<div class="col-6">
+								<span id="phoneNoError"></span>
+							</div>
+						</div>
+						<br>
+
+						<!-- #Row=5 -->
+						<div class="row">
+							<div class="col-3 text-white">
+								<label for="password"><b>Password * </b></label>
+							</div>
+							
+							<div class="col-3">
+								<input th:field="*{password}" class="form-control" placeholder="choose password" id="password"/>
+								<p class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+								
+							</div>
+							
+							<div class="col-6">
+								<span id="passwordError"></span>
+							</div>
+						</div>
+						<br>
+						
+						<!-- User roles  -->
+						<input type="hidden" th:field="*{roles}" name="user">
+
+						<!-- #Row=6 -->
+						<div class="col-12 text-center">
+							<button type="submit" class="btn btn-success" value="Register User"><b>Register</b></button>
+						</div>
+						<br>
+						<br>
+						<br>
+			</form>
+		</div>
+		<br>
+		<br>
+		<br>
+			</div><!-- Card body End-->
+			
+	</div><!-- card close -->
+		<!-- container close -->
+				<div th:insert ="fragments/commonui :: footer"></div> 
+	<br>
+	<br>
+</body>
+</html>

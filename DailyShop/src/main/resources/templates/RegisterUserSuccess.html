@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>easy Shop | User Registration</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<div th:insert="fragments/commonui :: usermenu"></div>
+		<br> <br> <br>
+		<div class="card">
+
+			<div class="card-header">
+			</div>
+
+			<br>
+
+			<div class="card-body">
+
+				<!-- #Row=1 -->
+				<div class="row">
+					<!-- Success result msg -->
+					<h2 style="color: blue; text-align: center">
+						Congratulation...! </h2>
+						
+					<h3 style="color: green; text-align: center"><span th:text="${successMsg}"></span>
+					</h3>
+					<br>
+					<h4 style="text-align: center">Click here to
+					<a th:href="@{/ds/login}"><b>Login</b> </a>
+					</h4>
+					<br>
+					
+				</div>
+				<br>
+			</div>
+			<br> <br> <br>
+		</div>
+		<!-- card close -->
+	</div>
+	<!-- container close -->
+	<br>
+	<br>
+</body>
+</html>

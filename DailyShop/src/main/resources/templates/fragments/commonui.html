@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<nav th:fragment="usermenu">
+		<nav class="navbar navbar-inverse navbar-fixed-top"
+			style="background-color: #ab0303">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" th:href="@{/ds/}"><img
+						th:src="@{/img/logo2.jpg}" height="35px" width="120px" /></a>
+				</div>
+
+				<ul class="nav navbar-nav ">
+					<li class=""><a href="#">All Products</a></li>
+
+					<li class="dropdown"><a class="dropdown-nested"
+						data-toggle="dropdown" href="#">Category<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Electronics</a></li>
+							<li><a href="#">Men Collection</a></li>
+							<li><a href="#">Women Collection</a></li>
+							<li><a href="#">Kids Collection</a></li>
+							<li><a href="#">Kitchen Ware</a></li>
+							<li><a href="#">Books</a></li>
+							<li><a href="#">Sports</a></li>
+							<li><a href="#">Watches</a></li>
+						</ul></li>
+					<li><a href="#">Books</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span
+							class="glyphicon glyphicon-shopping-cart"></span> My Cart <span
+							class="badge">0</span></a></li>
+					<li><a th:href="@{/ds/register}"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a th:href="@{/ds/login}"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div>
+		</nav>
+	</nav>
+
+	<!-- Footer -->
+
+	<nav th:fragment="footer">
+		<footer class="page-footer font-small blue pt-4">
+
+			<!-- Footer Links -->
+			<div class="container-fluid text-center text-md-left">
+
+				<!-- Grid row -->
+				<div class="row bg-info">
+
+					<!-- Grid column -->
+					<div class="col-md-6 mt-md-0 mt-3">
+
+						<!-- Content -->
+						<img alt="" th:src="@{/img/logo.jpg}" height="200px" width="450px"
+							align="left">
+
+					</div>
+					<!-- Grid column -->
+
+					<hr class="clearfix w-100 d-md-none pb-3">
+
+					<!-- Grid column -->
+					<div class="col-md-3 mb-md-0 mb-3">
+						<h5 class="text-uppercase">
+							<b>Services</b>
+						</h5>
+
+						<ul class="list-unstyled">
+							<li><a href="#!">About us</a></li>
+							<li><a href="#!">Shopping</a></li>
+							<li><a href="#!">Customer Care</a></li>
+							<li><a href="#!">Support</a></li>
+
+
+						</ul>
+
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-3 mb-md-0 mb-3">
+						<h5 class="text-uppercase">
+							<b>Contact us</b>
+						</h5>
+
+						Easy Shop pvt. Ltd, <br> plat no.: V-223, <br> Bangluru,
+						India, <br> 504 443<br> email: easyshop@gmail.com<br>
+						phone: +91 7020260316
+						
+					</div>
+					<!-- Grid column -->
+
+				</div>
+				<!-- Grid row -->
+
+			</div>
+			<!-- Footer Links -->
+
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				© 2020 Copyright: <a href="https://mdbootstrap.com/">
+					www.easyshop.com</a>
+			</div>
+			<!-- Copyright -->
+
+		</footer>
+	</nav>
+		<!-- Footer -->
+
+</body>
+</html>
