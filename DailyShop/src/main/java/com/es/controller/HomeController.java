@@ -9,17 +9,17 @@ import com.es.model.User;
 
 
 @Controller
-@RequestMapping("/es")
+@RequestMapping("/ds")
 public class HomeController {
 
-	@GetMapping("/e")
+	@GetMapping("/")
 	public String showHomePage() {
 		return "home";
 	}
 	
 	@GetMapping("/register")
 	public String showUserRegistrationPage(Model model) {
-		model.addAttribute("registerUser", new User());
+		model.addAttribute("user", new User());
 		return "RegisterUser";
 	}
 	
@@ -28,9 +28,9 @@ public class HomeController {
 		return "login";
 	}
 	
-	@GetMapping("/forgatePassword")
+	@GetMapping("/forgetPassword")
 	public String showForgatePassword() {
-		return "forgatePassword";
+		return "ForgetPassword";
 	}
 	
 	@GetMapping("/resetPassword")

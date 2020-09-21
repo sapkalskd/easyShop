@@ -24,6 +24,7 @@ public interface IUserService {
 
 //	boolean isUserEmailCountExistForEdit(String mail, Integer id); 
 
+	long getOneTimePassword(long number);
 
 
 }

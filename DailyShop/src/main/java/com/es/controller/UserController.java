@@ -74,7 +74,30 @@ public class UserController {
 
 			}
 		return page;
+	}//saveUser() end
+	
+	@PostMapping("/forgetPassword")
+	public String forgetPassword(@RequestParam String email,Model model) {
+		String msg = null;
+		String page = null;
+		
+		//check e-mail is exist or not
+		boolean flag = userService.isEmailExist(email);
+		
+		if(flag) {
+			
+		}
+		
+		return "";
+		
+		
 	}
+	
+	
+	
+	
+	
+	
 
 	//Email Validation
 	@GetMapping("/validateEmail")
@@ -101,7 +124,7 @@ public class UserController {
 		User user = userService.findByEmail(email).get();
 		model.addAttribute("userOb", user);
 		return "home";
-	}
+	}//
 	
 
 

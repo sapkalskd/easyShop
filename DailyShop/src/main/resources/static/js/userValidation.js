@@ -163,10 +163,10 @@ $(document).ready(function(){
 		}
 		return phoneNoError;
 	}
-	
+
 	function validate_password(){
 		var val = $("#password").val();
-		
+
 		if(val == ''){
 			$("#passwordError").html("Password must be required.");
 			$("#passwordError").css("color", "red");
@@ -188,13 +188,13 @@ $(document).ready(function(){
 
 	//On-submit
 	$("#userRegstrationForm").submit( function(){
-		
+
 		validate_firstName();
 		validate_lastName();
 		validate_email();
 		validate_phoneNo();
 		validate_password();
-		
+
 		if(firstNameError == false && lastNameError == false && 
 				emailError == false && 	phoneNoError == false && passwordError == false)
 			return true; 

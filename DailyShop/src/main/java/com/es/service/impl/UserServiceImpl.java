@@ -3,9 +3,9 @@ package com.es.service.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,5 +77,14 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public Optional<User> findByEmail(String email) {
 		return repository.findByEmail(email);
+	}
+	
+	/**
+	 * To Check one time password to reset password
+	 */
+	@Override
+	public long getOneTimePassword(long number) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
