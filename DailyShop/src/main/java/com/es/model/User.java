@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -81,5 +82,17 @@ public class User {
 			name = "es_user_role",
 			joinColumns = @JoinColumn(name = "id_join_col"))
 	private Set<String> roles = new HashSet<>();
+
+	@Transient
+	private String confirmPassword;
+	
+	@Transient
+	private String captcha;
+	
+	@Transient
+	private String hidden;
+	
+	@Transient
+	private String image;
 	
 }

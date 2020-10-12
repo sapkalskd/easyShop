@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.es.model.User;
+import com.es.util.CaptchaUtil;
+import com.fasterxml.jackson.databind.Module.SetupContext;
+
+import cn.apiclub.captcha.Captcha;
 
 
 @Controller
@@ -19,7 +23,10 @@ public class HomeController {
 	
 	@GetMapping("/register")
 	public String showUserRegistrationPage(Model model) {
-		model.addAttribute("user", new User());
+		User user = new User();
+		CaptchaUtil.setupCaptcha(user);
+		System.out.println("From Controller :"+user.getHidden());
+		model.addAttribute("user",user);
 		return "RegisterUser";
 	}
 	
@@ -37,6 +44,7 @@ public class HomeController {
 	public String showResetPassword() {
 		return "login";
 	}
+	
 	
 	
 }

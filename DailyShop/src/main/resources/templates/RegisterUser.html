@@ -13,7 +13,8 @@
 <body>
 	<div class="container">
 	<div th:insert="fragments/commonui :: usermenu"></div>
-	<script type="text/javascript" th:src="@{/js/userValidation.js}"></script>
+	<script type="text/javascript" th:src="@{/js/userRegistrationValidation.js}"></script>
+	<script type="text/javascript" th:src="@{/js/captchaValidation.js}"></script>
 	<br>
 	<br>
 	<br>
@@ -35,11 +36,11 @@
 		
 			<form th:action="@{/user/processRegistration}" method="post" id="userRegstrationForm"
 					th:object="${user}" style="max-width: 350px; margin: auto">
-				<b>All feilds are mandetory to fill.</b><br><br>
 							
 				 <!-- #Row=1 -->
 						<div class="row">
 							<div class="col-3 text-white">
+								<b style="color:red">All feilds are mandetory to fill.</b><br><br>
 								<label for="firstName"><b>First Name * </b></label>
 							</div>
 
@@ -110,13 +111,57 @@
 							</div>
 							
 							<div class="col-3">
-								<input th:field="*{password}" class="form-control" placeholder="choose password" id="password"/>
+								<input type="password" th:field="*{password}" class="form-control" placeholder="choose password" id="password"/>
 								<p class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
 								
 							</div>
 							
 							<div class="col-6">
 								<span id="passwordError"></span>
+							</div>
+						</div>
+						<br>
+						<!-- #Row=6 -->
+						<div class="row">
+							<div class="col-3 text-white">
+								<label for="confirmPassword"><b>Confirm Password * </b></label>
+							</div>
+							
+							<div class="col-3">
+								<input type="password" th:field="*{confirmPassword}" class="form-control" placeholder="confirm password" id="confirmPassword"/>
+								
+							</div>
+							
+							<div class="col-6">
+								<span id="confirmPasswordError"></span>
+							</div>
+						</div>
+						<br>
+						<!-- #Row=7 -->
+						<div class="row">
+							<div class="col-3 text-white">
+								<label for="captcha"><b></b></label>
+							</div>
+							<div class="col-3">
+								<img alt="Captcha" th:src="*{'data:image/jpg;base64,'+image}"/>
+							</div>
+						</div>
+						<br>
+						
+						<!-- #Row=8 -->
+						<div class="row">
+							<div class="col-3 text-white">
+								<label for="captcha"><b>Enter Captcha * </b></label>
+							</div>
+							
+							<div class="col-3">
+								<input type="hidden" th:feild="*{hidden}" id="hidden"/>
+								<input th:field="*{captcha}" class="form-control" placeholder="enter captcha" id="captcha"/>
+								
+							</div>
+							
+							<div class="col-6">
+								<span id="captchaError"></span>
 							</div>
 						</div>
 						<br>

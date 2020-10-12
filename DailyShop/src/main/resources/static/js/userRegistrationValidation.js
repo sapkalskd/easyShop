@@ -8,12 +8,16 @@ $(document).ready(function(){
 	$("#emailError").hide();
 	$("#phoneNoError").hide();
 	$("#passwordError").hide();
+	$("#confirmPasswordError").hide();
+	$("#captchaError").hide();
 
 	var firstNameError = false;
 	var lastNameError = false;
 	var emailError = false;
 	var phoneNoError = false;
 	var passwordError = false;
+	var confirmPasswordError = false;
+	var captchaError = false;
 
 	$("#firstName").focusout(function(){
 		validate_firstName();
@@ -33,6 +37,14 @@ $(document).ready(function(){
 
 	$("#password").focusout(function(){
 		validate_password();
+	});
+	
+	$("#confirmPassword").focusout(function(){
+		validate_confirmPassword();
+	});
+	
+	$("#captcha").focusout(function(){
+		validate_captcha();
 	});
 
 
@@ -185,6 +197,84 @@ $(document).ready(function(){
 		}
 	}
 
+/*	
+	function validate_confirmPassword(){
+		var password = $("#password").val();
+		var confirmPwd = $("#confirmPassword").val();
+		
+		if(password != confirmPwd){
+			$("#confirmPasswordError").html("Password not match");
+			$("#confirmPasswordError").css("color", "red");
+			$("#confirmPasswordError").show();
+			
+			confirmPasswordError = true;
+		}
+		else if(password == ''){
+			$("#confirmPasswordError").html("Please confirm password");
+			$("#confirmPasswordError").css("color", "red");
+			$("#confirmPasswordError").show();
+			
+			confirmPasswordError = true;
+		}
+		else{
+			$("#confirmPasswordError").hide();
+			confirmPasswordError = false;
+		}
+		return confirmPasswordError;
+	}
+*/
+	
+	function validate_confirmPassword(){
+		var pwd = $("#password").val();
+		var cPwd = $("#confirmPassword").val();
+
+		if(cPwd == ''){
+			$("#confirmPasswordError").html("Confirm password must required");
+			$("#confirmPasswordError").css("color", "red");
+			$("#confirmPasswordError").show();
+			
+			confirmPasswordError = true;
+			
+		}else if(cPwd != pwd ){
+			$("#confirmPasswordError").html("Password not match");
+			$("#confirmPasswordError").css("color", "red");
+			$("#confirmPasswordError").show();
+			
+			confirmPasswordError = true;
+			
+		}else{
+			$("#confirmPasswordError").hide();
+			confirmPasswordError = false;
+		}
+		
+		return confirmPasswordError;
+	}
+	
+	function validate_captcha(){
+		var hidden = $(user.hidden).val();
+		var captcha = $("#captcha").val();
+		
+		if(captcha == ''){
+			$("#captchaError").html("Please enter captcha");
+			$("#captchaError").css("color", "red");
+			$("#captchaError").show();
+			
+			captchaError = true;
+			
+		}else if(captcha != hidden){
+			$("#captchaError").html("Captcha does not match");
+			$("#captchaError").css("color", "red");
+			$("#captchaError").show();
+			
+			captchaError = true;
+		}
+		else{
+			$("#captchaError").hide();
+			captchaError = false;
+		}
+		
+		return captchaError;
+	}
 
 	//On-submit
 	$("#userRegstrationForm").submit( function(){
@@ -194,9 +284,16 @@ $(document).ready(function(){
 		validate_email();
 		validate_phoneNo();
 		validate_password();
+		validate_confirmPassword();
+		validate_captcha();
 
-		if(firstNameError == false && lastNameError == false && 
-				emailError == false && 	phoneNoError == false && passwordError == false)
+		if(firstNameError == false && 
+				lastNameError == false && 
+				emailError == false && 	
+				phoneNoError == false && 
+				passwordError == false &&
+				confirmPassword == false &&
+				captchaError == false)
 			return true; 
 		else
 			return false;
